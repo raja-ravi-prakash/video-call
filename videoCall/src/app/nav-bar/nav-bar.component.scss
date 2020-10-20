@@ -1,0 +1,16 @@
+.nav {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  box-shadow: 2px 2px 20px grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+
+
+}

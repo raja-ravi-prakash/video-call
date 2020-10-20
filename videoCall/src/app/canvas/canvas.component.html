@@ -1,0 +1,63 @@
+<div class="callStates">
+  <div *ngIf="callState" class="onCall">
+    <video class="caller"></video>
+    <video class="receiver"></video>
+  </div>
+  <div *ngIf="!callState" class="notOnCall">
+    <sl-card class="card-overview">
+      <img
+        slot="image"
+        src="assets/sample.png"
+        alt="default pic"
+      />
+
+      <strong>{{ displayName }}</strong
+      ><br />
+      <small>{{ userID }}</small>
+
+      <div slot="footer">
+        <sl-tooltip content="Call a User">
+          <sl-button type="primary" (click)="call()" pill>
+            <sl-icon name="telephone"></sl-icon>
+          </sl-button>
+        </sl-tooltip>
+        &nbsp;&nbsp;
+        <sl-tooltip content="Copy your id">
+          <sl-button type="default" (click)="copy()" pill>Copy ID</sl-button>
+        </sl-tooltip>
+      </div>
+    </sl-card>
+  </div>
+</div>
+
+<sl-dialog label="Set Your ID & Display Name" class="user-dialog">
+  <sl-input
+    class="sl-input-display-name"
+    placeholder="Enter you name"
+  ></sl-input
+  ><br />
+  <sl-input
+    class="sl-input-id"
+    placeholder="ID should only contain text and numbers"
+  ></sl-input>
+  <sl-button slot="footer" type="primary" (click)="close()">Ok</sl-button>
+</sl-dialog>
+
+<sl-dialog label="Make Call" class="caller-dialog">
+  <sl-tooltip content="Enter ID of the user.">
+    <sl-input class="call-user-id" placeholder="ID"></sl-input>
+  </sl-tooltip>
+  <sl-button slot="footer" type="primary" (click)="makeCall()">Ok</sl-button>
+</sl-dialog>
+
+<sl-dialog class="Outgoing Call" class="outgoing-caller-dialog">
+  Connectiing...
+</sl-dialog>
+
+<sl-dialog class="Incoming Call" class="incoming-caller-dialog">
+  <h1>Caller ID :</h1>
+  {{ incomingID }}
+  <sl-button slot="footer" type="success" (click)="answerCall()"
+    >Answer</sl-button
+  >
+</sl-dialog>

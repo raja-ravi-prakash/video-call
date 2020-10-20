@@ -1,0 +1,1 @@
+exports.userConnected = function (socket) {};
